@@ -1,7 +1,6 @@
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/bot_mapping.py
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/config.py
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/test_mapping.py
-/home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/bot_motionplanning.py
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/maze_solver.py
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/bot_pathplanning.py
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/bot_localization.py
@@ -10,7 +9,6 @@
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/__pycache__/bot_mapping.cpython-310.pyc
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/__pycache__/config.cpython-310.pyc
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/__pycache__/test_mapping.cpython-310.pyc
-/home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/__pycache__/bot_motionplanning.cpython-310.pyc
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/__pycache__/maze_solver.cpython-310.pyc
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/__pycache__/bot_pathplanning.cpython-310.pyc
 /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/__pycache__/bot_localization.cpython-310.pyc

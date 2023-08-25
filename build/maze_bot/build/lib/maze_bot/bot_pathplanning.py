@@ -1,32 +1,3 @@
-'''
-> Purpose :
-Module to perform pathplanning from source to destination using provided methods.
-                                                                         [DFS,DFS_Shortest,Dijisktra,Astar]
-
-> Usage :
-You can perform pathplanning by
-1) Importing the class (bot_pathplanner)
-2) Creating its object
-3) Accessing the object's function of (find_path_nd_display). 
-E.g ( self.bot_pathplanner.find_path_nd_display(self.bot_mapper.Graph.graph, start, end, maze,method="a_star") )
-
-
-> Inputs:
-1) Graph extracted in mapping stage
-2) Source & Destination
-3) Maze Image
-4) Method to Use [DFS,DFS_Shortest,Dijisktra,Astar]
-
-> Outputs:
-1) self.path_to_goal      => Computed Path from Source to destination [List of Cordinates]
-2) self.img_shortest_path => Found path Overlayed (In Color) on Image
-
-Author :
-Haider Abbasi
-
-Date :
-6/04/22
-'''
 import cv2
 import numpy as np
 from numpy import sqrt
@@ -135,19 +106,16 @@ class bot_pathplanner():
                         pass
 
         elif (method == "a_star"):
-            if (self.astar.shortest_path_overlayed == []):
-                self.draw_path_on_maze(maze,pathpts_to_display,method)
-            else:
-                if config.debug and config.debug_pathplanning:
-                    cv2.imshow("maze (Found Path) [a_star]", self.astar.shortest_path_overlayed)
-                else:
-                    try:
-                        cv2.destroyWindow("maze (Found Path) [a_star]")
-                    except:
-                        pass
-                
+            if not self.astar.shortestpath_found:
+                print("Finding Shortest Routes")
+                self.astar.find_best_routes(graph, start, end)
+            path_to_display=self.astar.shortest_path
+            path_str = "\nShortest" + Path_str
 
-        
+        pathpts_to_display = self.cords_to_pts(path_to_display)
+        self.draw_path_on_maze(maze, pathpts_to_display,method)
+        cv2.waitKey(0)
+    
 
 
 class DFS():
@@ -428,10 +396,13 @@ class dijisktra():
         self.shortestpath_found = True
 
 
+'''
+    <!-- FIXME : A* Star Code 작성해보기 -->
+'''
 class a_star(dijisktra):
 
     def __init__(self):
-
+        # Call Parent Class : Dijistra
         super().__init__()
         # Counter added to track total nodes visited to 
         #               reach goal node
@@ -451,10 +422,10 @@ class a_star(dijisktra):
         start_idx = [idx for idx, key in enumerate(graph.items()) if key[0]==start][0]
         print("Index of search key : {}".format(start_idx))
 
-        # Cost of reaching that node from start
+        # Cost of reaching that node from start : G(x)
         cost2node = []
-        # Distanc list storing dist of each node
-        dist = []       
+        # Distance list storing dist of each node : F(x)
+        dist = []
         # Storing found shortest subpaths [format ==> (parent_idx = closest_child_idx)]
         parent = []
 
@@ -481,6 +452,7 @@ class a_star(dijisktra):
 
         # We set the cost of reaching the start node to 0
         cost2node[start_idx] = 0
+        
         # Total cost(Start Node) = Cost2Node(Start) + Heuristic Cost(Start,End)
         dist[start_idx] = cost2node[start_idx] + self.euc_d(start, end)
         # Decrease Key as new found dist of start_vertex is 0

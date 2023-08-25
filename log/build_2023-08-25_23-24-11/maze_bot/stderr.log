@@ -1,0 +1,2 @@
+/home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/bot_pathplanning.py:138: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if (self.astar.shortest_path_overlayed is 0):

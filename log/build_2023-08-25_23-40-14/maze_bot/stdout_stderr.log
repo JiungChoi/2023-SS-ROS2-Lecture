@@ -1,0 +1,18 @@
+running develop
+running egg_info
+writing maze_bot.egg-info/PKG-INFO
+writing dependency_links to maze_bot.egg-info/dependency_links.txt
+writing entry points to maze_bot.egg-info/entry_points.txt
+writing requirements to maze_bot.egg-info/requires.txt
+writing top-level names to maze_bot.egg-info/top_level.txt
+reading manifest file 'maze_bot.egg-info/SOURCES.txt'
+writing manifest file 'maze_bot.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze-bot.egg-link (link to .)
+Installing driving_node script to /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/maze_bot
+Installing go_to_goal script to /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/maze_bot
+Installing maze_solver script to /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/maze_bot
+Installing video_recorder script to /home/jw/jw/2023-SS-ROS2-Lecture/install/maze_bot/lib/maze_bot
+
+Installed /home/jw/jw/2023-SS-ROS2-Lecture/build/maze_bot
+running install_data
