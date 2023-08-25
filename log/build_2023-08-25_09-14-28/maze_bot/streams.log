@@ -1,0 +1,27 @@
+[1.646s] Invoking command in '/home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/src/maze_bot': PYTHONPATH=/home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/build/maze_bot/prefix_override:/home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/maze_bot build --build-base /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/build/maze_bot/build install --record /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/build/maze_bot/install.log --single-version-externally-managed
+[2.289s] running egg_info
+[2.291s] writing ../../build/maze_bot/maze_bot.egg-info/PKG-INFO
+[2.291s] writing dependency_links to ../../build/maze_bot/maze_bot.egg-info/dependency_links.txt
+[2.292s] writing entry points to ../../build/maze_bot/maze_bot.egg-info/entry_points.txt
+[2.292s] writing requirements to ../../build/maze_bot/maze_bot.egg-info/requires.txt
+[2.292s] writing top-level names to ../../build/maze_bot/maze_bot.egg-info/top_level.txt
+[2.296s] reading manifest file '../../build/maze_bot/maze_bot.egg-info/SOURCES.txt'
+[2.299s] writing manifest file '../../build/maze_bot/maze_bot.egg-info/SOURCES.txt'
+[2.300s] running build
+[2.300s] running build_py
+[2.301s] copying maze_bot/maze_solver.py -> /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/build/maze_bot/build/lib/maze_bot
+[2.302s] running install
+[2.303s] running install_lib
+[2.306s] copying /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/build/maze_bot/build/lib/maze_bot/maze_solver.py -> /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot
+[2.308s] byte-compiling /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot/maze_solver.py to maze_solver.cpython-310.pyc
+[2.314s] running install_data
+[2.316s] running install_egg_info
+[2.321s] removing '/home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot-0.0.0-py3.10.egg-info' (and everything under it)
+[2.321s] Copying ../../build/maze_bot/maze_bot.egg-info to /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages/maze_bot-0.0.0-py3.10.egg-info
+[2.323s] running install_scripts
+[2.377s] Installing driving_node script to /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/install/maze_bot/lib/maze_bot
+[2.377s] Installing go_to_goal script to /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/install/maze_bot/lib/maze_bot
+[2.377s] Installing maze_solver script to /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/install/maze_bot/lib/maze_bot
+[2.378s] Installing video_recorder script to /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/install/maze_bot/lib/maze_bot
+[2.379s] writing list of installed files to '/home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/build/maze_bot/install.log'
+[2.437s] Invoked command in '/home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/src/maze_bot' returned '0': PYTHONPATH=/home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/build/maze_bot/prefix_override:/home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/install/maze_bot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/maze_bot build --build-base /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/build/maze_bot/build install --record /home/jw/jw/path_planning_ws/2023-SS-ROS2-Lecture/build/maze_bot/install.log --single-version-externally-managed
