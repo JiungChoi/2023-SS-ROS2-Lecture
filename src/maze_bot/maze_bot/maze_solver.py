@@ -68,7 +68,7 @@ class maze_solver(Node):
 
         # Subscrbing to receive the robot pose in simulation
         self.pose_subscriber = self.create_subscription(Odometry,'/odom',self.bot_motionplanner.get_pose,10)
-        self.vel_subscriber = self.create_subscription(Odometry,'/odom',self.get_bot_speed,10)
+        
         self.bot_speed = 0
         self.bot_turning = 0
 
@@ -228,9 +228,8 @@ class maze_solver(Node):
 
         self.bot_pathplanner.find_path_nd_display(self.bot_mapper.Graph.graph, start, end, maze,method="dijisktra")
         self.bot_pathplanner.find_path_nd_display(self.bot_mapper.Graph.graph, start, end, maze,method="a_star")
-        if config.debug and config.debug_pathplanning:
-            print("\nNodes Visited [Dijisktra V A-Star*] = [ {} V {} ]".format(self.bot_pathplanner.dijisktra.dijiktra_nodes_visited,self.bot_pathplanner.astar.astar_nodes_visited))
-
+        print("\nNodes Visited [Dijisktra V A-Star*] = [ {} V {} ]".format(self.bot_pathplanner.dijisktra.dijiktra_nodes_visited,self.bot_pathplanner.astar.astar_nodes_visited))    
+        # cv2.waitKey(0)
 
         # [Stage 4: MotionPlanning] Reach the (maze exit) by navigating the path previously computed
         bot_loc = self.bot_localizer.loc_car
@@ -245,24 +244,11 @@ class maze_solver(Node):
         bot_view = cv2.resize(self.bot_view, (int(frame_disp.shape[0]/2),int(frame_disp.shape[1]/2)))
         bot_view = bot_view[0:int(bot_view.shape[0]/1.5),:]
 
-        # Draw & Display [For better Understanding of current robot state]
-        center_frame_disp = int(frame_disp.shape[0]/2)
-        center_bot_view = int(bot_view.shape[0]/2)
-        bot_offset = center_frame_disp - center_bot_view
-        center_img_shortest_path = int(img_shortest_path.shape[0]/2)
-        isp_offset = center_frame_disp - center_img_shortest_path
+        self.vel_msg.linear.x = 0.0
+        self.vel_msg.angular.z = 0.0
 
-        bot_view = self.draw_bot_speedo(bot_view,self.bot_motionplanner.curr_speed)
-
-        if config.debug_live:
-            self.overlay_live(frame_disp,img_shortest_path,self.bot_mapper.maze_interestPts,self.bot_pathplanner.choosen_route)
-
-        orig_col = 40 + int(bot_view.shape[1]/4)
-        orig = (orig_col,bot_offset-10)
-        cv2.putText(frame_disp, "Bot View", orig, cv2.FONT_HERSHEY_PLAIN, 2, (255,0,0),3)
-        frame_disp = cv2.rectangle(frame_disp, (20,bot_offset), (bot_view.shape[1]+20,(bot_view.shape[0]+bot_offset)), (0,0,255),12)
-        frame_disp[bot_offset:(bot_view.shape[0]+bot_offset),20:bot_view.shape[1]+20] = bot_view
- 
+        self.velocity_publisher.publish(self.vel_msg)
+        
         cv2.imshow("Maze (Live)", frame_disp)
         cv2.waitKey(1)
 
