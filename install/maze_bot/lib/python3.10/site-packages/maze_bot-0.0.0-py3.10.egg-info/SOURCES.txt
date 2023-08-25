@@ -14,9 +14,6 @@ launch/maze_2_robot_camera.launch.py
 launch/rviz.launch.py
 maze_bot/__init__.py
 maze_bot/bot_localization.py
-maze_bot/bot_mapping.py
-maze_bot/bot_motionplanning.py
-maze_bot/bot_pathplanning.py
 maze_bot/config.py
 maze_bot/maze_solver.py
 maze_bot/test_mapping.py
