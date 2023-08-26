@@ -99,7 +99,7 @@ class bot_mapper():
         if config.debug and config.debug_mapping:
             cv2.imshow("Nodes Conected", self.maze_connect)
         if debug_mapping:
-            cv2.waitKey(0)                    
+            # cv2.waitKey(0)                    
             self.maze_connect = cv2.line(self.maze_connect,curr_pixel,neighbor_pixel,(255,255,255),1)
 
     # Connect curr_node to its neighbors in immediate [left -> top-right] region 
@@ -455,25 +455,28 @@ class bot_mapper():
             self.graphified = True
             
             if config.debug and config.debug_mapping:
-                cv2.imshow("Extracted_Maze [MazeConverter]",extracted_maze)
-                cv2.imshow('Maze (thinned)', thinned)
-                cv2.imshow('Maze (thinned*2)', thinned)
-                cv2.imshow('Maze (thinned*2)(Cropped)', thinned_cropped)
-                cv2.imshow('Maze (thinned*2)(Cropped)(Path_Overlayed)', extracted_maze_cropped)
+                pass
+                # cv2.imshow("Extracted_Maze [MazeConverter]",extracted_maze)
+                # cv2.imshow('Maze (thinned)', thinned)
+                # cv2.imshow('Maze (thinned*2)', thinned)
+                # cv2.imshow('Maze (thinned*2)(Cropped)', thinned_cropped)
+                # cv2.imshow('Maze (thinned*2)(Cropped)(Path_Overlayed)', extracted_maze_cropped)
         else:
 
             if config.debug and config.debug_mapping:
-                cv2.imshow("Nodes Conected", self.maze_connect)
-                cv2.imshow("Maze (Interest Points)", self.maze_interestPts)
+                pass
+                # cv2.imshow("Nodes Conected", self.maze_connect)
+                # cv2.imshow("Maze (Interest Points)", self.maze_interestPts)
             else:
                 try:
-                    cv2.destroyWindow("Nodes Conected")
-                    cv2.destroyWindow("Maze (Interest Points)")
-                    cv2.destroyWindow("Extracted_Maze [MazeConverter]")
-                    cv2.destroyWindow('Maze (thinned)')
-                    cv2.destroyWindow('Maze (thinned*2)')
-                    cv2.destroyWindow('Maze (thinned*2)(Cropped)')
-                    cv2.destroyWindow('Maze (thinned*2)(Cropped)(Path_Overlayed)')
+                    pass
+                    # cv2.destroyWindow("Nodes Conected")
+                    # cv2.destroyWindow("Maze (Interest Points)")
+                    # cv2.destroyWindow("Extracted_Maze [MazeConverter]")
+                    # cv2.destroyWindow('Maze (thinned)')
+                    # cv2.destroyWindow('Maze (thinned*2)')
+                    # cv2.destroyWindow('Maze (thinned*2)(Cropped)')
+                    # cv2.destroyWindow('Maze (thinned*2)(Cropped)(Path_Overlayed)')
                 except:
                     pass
 

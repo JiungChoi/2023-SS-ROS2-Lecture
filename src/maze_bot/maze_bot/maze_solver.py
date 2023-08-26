@@ -71,6 +71,7 @@ class maze_solver(Node):
         self.vel_subscriber = self.create_subscription(Odometry,'/odom',self.get_bot_speed,10)
         self.bot_speed = 0
         self.bot_turning = 0
+        self.bot_view = 0
 
         self.sat_view = np.zeros((100,100))
 
@@ -226,10 +227,10 @@ class maze_solver(Node):
         end = self.bot_mapper.Graph.end
         maze = self.bot_mapper.maze
 
-        self.bot_pathplanner.find_path_nd_display(self.bot_mapper.Graph.graph, start, end, maze,method="dijisktra")
+        # self.bot_pathplanner.find_path_nd_display(self.bot_mapper.Graph.graph, start, end, maze,method="dijisktra")
         self.bot_pathplanner.find_path_nd_display(self.bot_mapper.Graph.graph, start, end, maze,method="a_star")
-        if config.debug and config.debug_pathplanning:
-            print("\nNodes Visited [Dijisktra V A-Star*] = [ {} V {} ]".format(self.bot_pathplanner.dijisktra.dijiktra_nodes_visited,self.bot_pathplanner.astar.astar_nodes_visited))
+        # if config.debug and config.debug_pathplanning:
+        #     print("\nNodes Visited [Dijisktra V A-Star*] = [ {} V {} ]".format(self.bot_pathplanner.dijisktra.dijiktra_nodes_visited,self.bot_pathplanner.astar.astar_nodes_visited))
 
 
         # [Stage 4: MotionPlanning] Reach the (maze exit) by navigating the path previously computed

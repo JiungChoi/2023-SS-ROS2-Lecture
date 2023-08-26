@@ -135,17 +135,14 @@ class bot_pathplanner():
                         pass
 
         elif (method == "a_star"):
-            if (self.astar.shortest_path_overlayed == []):
-                self.draw_path_on_maze(maze,pathpts_to_display,method)
-            else:
-                if config.debug and config.debug_pathplanning:
-                    cv2.imshow("maze (Found Path) [a_star]", self.astar.shortest_path_overlayed)
-                else:
-                    try:
-                        cv2.destroyWindow("maze (Found Path) [a_star]")
-                    except:
-                        pass
-                
+            if not self.astar.shortestpath_found:
+                print("Finding Shortest Routes")
+                self.astar.find_best_routes(graph, start, end)
+
+        pathpts_to_display = self.cords_to_pts(path_to_display)
+        path_to_display=self.astar.shortest_path
+        self.draw_path_on_maze(maze, pathpts_to_display,method)
+        # cv2.waitKey(0)
 
         
 
