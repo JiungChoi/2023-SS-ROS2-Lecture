@@ -102,9 +102,10 @@ class bot_pathplanner():
             if not self.astar.shortestpath_found:
                 print("Finding Shortest Routes")
                 self.astar.find_best_routes(graph, start, end)
-            path_to_display=self.astar.shortest_path
+            
 
         pathpts_to_display = self.cords_to_pts(path_to_display)
+        path_to_display=self.astar.shortest_path
         self.draw_path_on_maze(maze, pathpts_to_display,method)
         #cv2.waitKey(0)
                 
