@@ -226,9 +226,7 @@ class maze_solver(Node):
         end = self.bot_mapper.Graph.end
         maze = self.bot_mapper.maze
 
-        self.bot_pathplanner.find_path_nd_display(self.bot_mapper.Graph.graph, start, end, maze,method="dijisktra")
         self.bot_pathplanner.find_path_nd_display(self.bot_mapper.Graph.graph, start, end, maze,method="a_star")
-        print("\nNodes Visited [Dijisktra V A-Star*] = [ {} V {} ]".format(self.bot_pathplanner.dijisktra.dijiktra_nodes_visited,self.bot_pathplanner.astar.astar_nodes_visited))    
         # cv2.waitKey(0)
 
         # [Stage 4: MotionPlanning] Reach the (maze exit) by navigating the path previously computed
@@ -239,18 +237,11 @@ class maze_solver(Node):
         # Displaying bot solving maze  (Live)
         img_shortest_path = self.bot_pathplanner.img_shortest_path
         self.bot_motionplanner.display_control_mechanism_in_action(bot_loc, path, img_shortest_path, self.bot_localizer, frame_disp)
-        
-        # View bot view on left to frame Display
-        bot_view = cv2.resize(self.bot_view, (int(frame_disp.shape[0]/2),int(frame_disp.shape[1]/2)))
-        bot_view = bot_view[0:int(bot_view.shape[0]/1.5),:]
 
-        self.vel_msg.linear.x = 0.0
-        self.vel_msg.angular.z = 0.0
+        cv2.imshow("Maze [Livc]", frame_disp)
 
-        self.velocity_publisher.publish(self.vel_msg)
-        
-        cv2.imshow("Maze (Live)", frame_disp)
-        cv2.waitKey(1)
+
+        cv2.waitKey(0)
 
 def main(args =None):
     rclpy.init()

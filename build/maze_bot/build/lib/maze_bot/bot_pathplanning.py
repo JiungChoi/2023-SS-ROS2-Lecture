@@ -94,31 +94,20 @@ class bot_pathplanner():
             print(Path_str," from {} to {} is =  {}".format(start,end,pathpts_to_display))
         
         if (method =="dijisktra"):
-            if (self.dijisktra.shortest_path_overlayed == []):
-                self.draw_path_on_maze(maze,pathpts_to_display,method)
-            else:
-                if config.debug and config.debug_pathplanning:
-                    cv2.imshow("maze (Found Path) [dijisktra]", self.dijisktra.shortest_path_overlayed)
-                else:
-                    try:
-                        cv2.destroyWindow("maze (Found Path) [dijisktra]")
-                    except:
-                        pass
+            if not self.astar.shortestpath_found:
+                self.dijisktra.find_best_routes(graph, start, end)
+            path_to_display=self.dijisktra.shortest_path
 
         elif (method == "a_star"):
-            if (self.astar.shortest_path_overlayed == []):
-                self.draw_path_on_maze(maze,pathpts_to_display,method)
-                # cv2.waitKey()
-            else:
-                if config.debug and config.debug_pathplanning:
-                    cv2.imshow("maze (Found Path) [a_star]", self.astar.shortest_path_overlayed)
-                else:
-                    try:
-                        cv2.destroyWindow("maze (Found Path) [a_star]")
-                    except:
-                        pass
-                
+            if not self.astar.shortestpath_found:
+                print("Finding Shortest Routes")
+                self.astar.find_best_routes(graph, start, end)
+            path_to_display=self.astar.shortest_path
 
+        pathpts_to_display = self.cords_to_pts(path_to_display)
+        self.draw_path_on_maze(maze, pathpts_to_display,method)
+        #cv2.waitKey(0)
+                
         
 
 
